@@ -32,12 +32,13 @@ print('Obrigado por participar!')
 #CÓDIGO 5
 frutas=["maçã","banana","uva","goiaba"]
 for x in frutas:
+    frutas.append("pera")
     if x=="uva":
         break
     print(x)
 
 #CÓDIGO 6
 n=5
-while n>=0:
+while n>0:
     n-=1
     print(n)
