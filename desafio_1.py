@@ -18,6 +18,13 @@ def funcao_2(num):
 
 print(funcao_2(10))
 
+#CÓDIGO3
+def funcao_3(str):
+    for i in range(0,len(str)-1,2):
+        print('indice[',i,']', str[i])
+
+print(funcao_3('Testando a Função'))
+
 #CÓDIGO4
 def funcao_4(lista_numerica):
     print('valor passado ', lista_numerica)
