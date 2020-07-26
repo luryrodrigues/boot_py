@@ -13,7 +13,6 @@ def play(word):
     guessed_letters=[]
     attempt=6
     hit=False
-    i=0
     print('=-'*28)
     print('VAMOS JOGAR FORCA?')
     print('Você terá que adivinhar a palavra que pensei! VAMOS LÁ?')
@@ -37,11 +36,14 @@ def play(word):
                     hit=True
             elif guess in guessed_letters:
                 print(f'Você já tentou a letra {guess} antes. Tente outra!')
+                print (draw.draw(attempt))
+                print(blank)
             else:
                 print(f'Não tem a letra {guess} na palavra. Que pena!')
                 guessed_letters.append(guess)
                 attempt-=1
                 print(draw.draw(attempt))
+                print(blank)
         if len(guess)!=1:
             if guess==word:
                 print(f"PARABÉNS!! Você ganhou o jogo! A palavra era {word}.")
