@@ -21,7 +21,9 @@ class Quadrado(Formas):
     def __init__(self,x):
         self.x=x
         self.y=x
-#também posso adicionar novos métodos às classes filhas
+#também posso adicionar novos métodos às classes filhas ou sobrescrever métodos, por exemplo:
+    def area(self):
+        return self.x*self.x     #sobrescrevi o método área
 
 quadrado_1=Quadrado(3)
 print(quadrado_1.area())
@@ -48,6 +50,8 @@ class Cubo(Quadrado2):
 cubo1=Cubo(4)
 print(cubo1.area_superficie())
 print(cubo1.volume())
+
+#Polimorfismo é a possibilidade do sistema que estamos trabalhando ter várias versões de um mesmo método, por exemplo.
 
 #Verificando Heranças
 print(issubclass(Quadrado,Formas))
