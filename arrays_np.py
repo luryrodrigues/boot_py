@@ -77,4 +77,4 @@ x=np.array([1,2,3])
 print(f'Array X antes: {x}')
 y=x[:2].copy()
 y[0]=-100  #depois de usar o copy(), a alteração do valor em y não altera x
-print(f'Array X: {x}')
+print(f'Array X depois: {x}')
