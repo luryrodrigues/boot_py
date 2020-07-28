@@ -42,5 +42,6 @@ cond = (x%2==0)
 i,j=np.where(cond)
 print(f'índice i - linhas: {i}\níndice j - colunas: {j}')
 i_row=np.where(np.sum(cond,axis=1))[0]  #[0]: só quero o número da linha, e não da coluna
+print(np.sum(cond,axis=1))
 print(f'índice das linhas que possuem nº pares: {i_row}')
 print(f'Linhas que possuem nº pares:\n{x[i_row,:]}') #slicing
