@@ -53,3 +53,23 @@ print(df.iloc[4,1:3])
 
 ##indexação por nome de multiplas colunas
 print(df.loc[:,['temperatura','classification']])
+
+#transformando o tipo da coluna date para datetime:
+df['date']=pd.to_datetime(df['date'])
+print(df.dtypes)
+
+#setando o índice (label das linhas)
+df=df.set_index('date')
+print(df)
+
+#INDEXAÇÃO BOOLEANA
+cond=df['temperatura']>=25  # seleciona acima de 25 graus
+print(df[cond])
+
+#filtrando por data
+cond= df.index<='2020-03-01'     #a coluna date é nosso índice, por isso usa df.index
+print(df[cond])
+
+#indexação por data com slice em coluna
+print(df.loc[df.index<='2020-03-01',['classification']])  #não vai retornar a coluna temperatura
+print(df.iloc[df.index<='2020-03-01',[-1]])
