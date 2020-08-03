@@ -14,7 +14,7 @@ from sklearn.preprocessing import LabelEncoder    #LabelEncoder transforma "labe
 
 #conversão de y para valores numéricos
 le=LabelEncoder()   #instanciando a classe
-y=le.fit_transform(y.ravel())   #fit gera um mapa para as entradas e transform codifica as entradas. 
+y=le.fit_transform(y.ravel())   #fit gera um mapa para as entradas (treina o modelo) e transform codifica as entradas. 
 #O método ravel() retorna uma vista (view) 1D do array, mas sem modificar o seu conteúdo.
 
 #modelo
