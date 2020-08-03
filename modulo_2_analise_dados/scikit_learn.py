@@ -42,5 +42,18 @@ output['new_class'].value_counts().plot.bar(figsize=(10,5),rot=0,title='Classifi
 plt.show()
 
 #boxplot
-output.boxplot(by='new_class',figsize=(10,5),title='Classificação de temperaturas')
+output.boxplot(by='new_class',figsize=(10,5))
 plt.show()
+
+#sistema automático
+def classif_temp():
+  ask='Y'
+  while ask=='Y':
+    temp=float(input('Insira a temperatura (ºC): '))
+    temp=np.array(temp).reshape(-1,1)
+    class_temp=clf.predict(temp)
+    class_temp=le.inverse_transform(class_temp)
+    print(f'{temp[0]}ºC é classificado como {class_temp[0]}')
+    ask=input('Gostaria de digitar uma nova temperatura? [Y/N] ').strip().upper()
+
+print(classif_temp())
