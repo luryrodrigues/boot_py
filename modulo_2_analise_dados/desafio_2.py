@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+import  matplotlib.pyplot as plt
+import seaborn as sns
 
 df=pd.read_csv('https://pycourse.s3.amazonaws.com/bike-sharing.csv')
 
@@ -83,3 +84,21 @@ print('o) Aos sábados (weekday = 6), qual o horário do dia contém a maior mé
 y=df[df['weekday']==6]
 x=y.groupby(by='hour')['total_count'].mean().sort_values(ascending=False)
 print(x.head(1))
+
+#gráficos
+fig, ax = plt.subplots(nrows=2,sharex=True,figsize=(16,10))
+
+sns.pointplot(data=df,x='hour',y='total_count',hue='season',ax=ax[0])
+ax[0].set_title('Locações horárias de bicicleta por estação do ano')
+ax[0].grid()
+
+sns.pointplot(data=df,x='hour',y='total_count',hue='weekday',ax=ax[1])
+ax[1].set_title('Locações horárias de bicicleta por dia da semana')
+ax[1].grid()
+plt.show()
+
+fig, ax = plt.subplots()
+sns.barplot(data=df,x='year',y='total_count',estimator=sum,ci=None)
+ax.set_title('Locações por ano')
+plt.show()
+
