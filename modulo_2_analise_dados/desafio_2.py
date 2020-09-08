@@ -86,9 +86,9 @@ x=y.groupby(by='hour')['total_count'].mean().sort_values(ascending=False)
 print(x.head(1))
 
 #gráficos
-fig, ax = plt.subplots(nrows=2,sharex=True,figsize=(16,10))
+fig, ax = plt.subplots(nrows=2,sharex=True,figsize=(16,10))   
 
-sns.pointplot(data=df,x='hour',y='total_count',hue='season',ax=ax[0])
+sns.pointplot(data=df,x='hour',y='total_count',hue='season',ax=ax[0])  #hue=agrupamento
 ax[0].set_title('Locações horárias de bicicleta por estação do ano')
 ax[0].grid()
 
@@ -98,7 +98,11 @@ ax[1].grid()
 plt.show()
 
 fig, ax = plt.subplots()
+sns.barplot(data=df,x='month',y='total_count',estimator=sum)
+ax.set_title('Locações por mês')
+plt.show()
+
+fig, ax = plt.subplots()
 sns.barplot(data=df,x='year',y='total_count',estimator=sum,ci=None)
 ax.set_title('Locações por ano')
 plt.show()
-
